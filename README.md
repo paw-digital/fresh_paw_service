@@ -17,12 +17,14 @@ Copy cron.sh.sample to cron.sh
 Update the domain in the cron.sh file
 Add execution rights to the file with chmod +x cron.sh
 Add a one minute interval call on the script file with crontab -e by adding this line:
+```
 * * * * * /var/www/html/fresh_paw_service/cron.sh
-
+```
 
 
 
 ### Sample nginx file using SSL
+```
 server {
     listen 80;
     server_name freshpawservice.com;
@@ -58,3 +60,4 @@ server {
 		internal;
 	}
 }
+```
