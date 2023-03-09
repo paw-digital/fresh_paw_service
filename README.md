@@ -6,16 +6,21 @@ Import paw.sql to your MySQL DB
 
 ## Domain 
 Set up a new domain on your webserver and point it to the /public folder.
+
 Create a SSL certificates for your domain ( e.g. with with certbot: certbot certonly --nginx -d freshpawservice.com ).
 
 ## Setup
 Copy config.php.sample to config.php
+
 Fill out all settings config.php
 
 ## Set a schedule
 Copy cron.sh.sample to cron.sh
+
 Update the domain in the cron.sh file
+
 Add execution rights to the file with chmod +x cron.sh
+
 Add a one minute interval call on the script file with crontab -e by adding this line:
 ```
 * * * * * /var/www/html/fresh_paw_service/cron.sh
