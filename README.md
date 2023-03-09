@@ -1,4 +1,4 @@
-# fresh_paw_service
+# Fresh PAW service
 Service that sends new PAW for old ones and helps retain a persons anonymity.
 
 ## DB
