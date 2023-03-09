@@ -10,9 +10,11 @@ Set up a new domain on your webserver and point it to the /public folder.
 Create a SSL certificates for your domain ( e.g. with with certbot: certbot certonly --nginx -d freshpawservice.com ).
 
 ## Setup
-Copy config.php.sample to config.php
+Run "composer install" to install third party libraries
 
-Fill out all settings config.php
+Copy config.php.sample to config.php in the inc folder
+
+Fill out all settings in the config.php
 
 ## Set a schedule
 Copy cron.sh.sample to cron.sh
