@@ -1,0 +1,18 @@
+{
+    "name": "paw/marketplace",
+    "description": "Paw Digital Marketplace",
+    "require": {
+        "guzzlehttp/guzzle": "^7.4",
+        "slim/slim": "^4.9",
+        "slim/http": "^1.2",
+        "slim/psr7": "^1.5",
+        "phpmailer/phpmailer": "^6.5",
+        "ext-json": "*",
+		"jimmiw/php-time-ago": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Paw\\": "src/"
+        }
+    }
+}

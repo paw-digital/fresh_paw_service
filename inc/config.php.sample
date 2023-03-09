@@ -1,0 +1,53 @@
+<?php
+
+// -------------------------------------------
+// SESSION management
+// -------------------------------------------
+
+session_start();
+header("Content-Security-Policy: frame-src 'none'");
+
+
+// -------------------------------------------
+// Config
+// -------------------------------------------
+
+// DEBUG
+DEFINE('DEBUG_KEY', '8dbnkse'); // Displays errors when the page is called with ?debug=DEBUG_KEY
+DEFINE('ERROR_OUTPUT_IP_WHITELIST', array('127.0.0.1'));
+
+// NODE
+DEFINE('NODE_ADDRESS', '127.0.0.1:7046');
+
+// MYSQL
+DEFINE('MYSQL_DB_NAME', 'db_name');
+DEFINE('MYSQL_DB_USER', 'db_user');
+DEFINE('MYSQL_DB_PASSWORD', 'db_pass');
+DEFINE('MYSQL_DB_HOST', 'localhost');
+
+// DEPOSITS
+DEFINE('SERVICE_POOL_ACCOUNT', "paw_"); // Main pool account
+DEFINE('SERVICE_FEE', 0);	// Service fee. Only displayed in the output, not implemented!
+DEFINE('DEPOSIT_WALLET', ""); // The wallet that will hold all the deposit accounts
+
+
+
+// ------------------------------------------- 
+// Error Handling
+// ------------------------------------------- 
+
+if(isset($_SESSION['DEBUG_ON']) || array_search($_SERVER['REMOTE_ADDR'], ERROR_OUTPUT_IP_WHITELIST) !== FALSE || (isset($_SERVER["HTTP_CF_CONNECTING_IP"]) && array_search($_SERVER["HTTP_CF_CONNECTING_IP"], ERROR_OUTPUT_IP_WHITELIST) !== FALSE))
+	error_reporting(E_ALL);
+else
+	error_reporting(0);
+
+if(isset($_GET['DEBUG']))
+{
+	if($_GET['DEBUG'] === DEBUG_KEY)
+		$_SESSION['DEBUG_ON'] = TRUE;
+	else if($_GET['DEBUG'] === 'off')
+		unset($_SESSION['DEBUG_ON']);
+}
+
+
+?>
